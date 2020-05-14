@@ -8,8 +8,8 @@
  */
 void error_func(char *message, unsigned int line_number)
 {
-    if (message == NULL)
-        return;
-    fprintf(stderr, "L%u: %s\n", line_number, message);
-    exit(EXIT_FAILURE);
+	if (message == NULL)
+		return;
+	fprintf(stderr, "L%u: %s\n", line_number, message);
+	exit(EXIT_FAILURE);
 }

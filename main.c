@@ -8,13 +8,13 @@
  */
 int main(int argc, char **argv)
 {
-    if (argc != 2)
+	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-    read_file(argv[1]);
-    return (EXIT_SUCCESS);
+	read_file(argv[1]);
+	return (EXIT_SUCCESS);
 }
 /**
  * read_file - function that interprets the file
@@ -23,27 +23,27 @@ int main(int argc, char **argv)
  */
 void read_file(char *file_name)
 {
-    stack_t *stack = NULL;
-    int line_num = 0;
-    char **token, *buffer = NULL;
-    size_t size = 0;
-    FILE *file;
+	stack_t *stack = NULL;
+	int line_num = 0;
+	char **token, *buffer = NULL;
+	size_t size = 0;
+	FILE *file;
 
-    file = fopen(file_name, "r");
-    if (file == NULL)
-    {
-        fprintf(stderr, "Error: Can't open file %s\n", file_name);
-        exit(EXIT_FAILURE);
-    }
-    while (getline(&buffer, &size, file) != -1)
-    {
-        line_num++;
-        token = parse_line(buffer);
-        if (token == NULL)
-            continue;
-        else
-            get_function(token, line_num)(&stack, line_num);
-    }
-    free(buffer);
-    free_list(&stack);
+	file = fopen(file_name, "r");
+	if (file == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", file_name);
+		exit(EXIT_FAILURE);
+	}
+	while (getline(&buffer, &size, file) != -1)
+	{
+		line_num++;
+		token = parse_line(buffer);
+		if (token == NULL)
+			continue;
+		else
+			get_function(token, line_num)(&stack, line_num);
+	}
+	free(buffer);
+	free_list(&stack);
 }

@@ -6,18 +6,18 @@
  */
 void free_list(stack_t **stack)
 {
-    stack_t *tmp;
+	stack_t *tmp;
 
-    if (*stack == NULL)
-        return;
-    while (*stack != NULL)
-    {
-        tmp = (*stack)->next;
-        free(*stack);
-        if (tmp == NULL)
-            return;
-        tmp->prev = NULL;
-        *stack = tmp;
-    }
-    free(*stack);
+	if (*stack == NULL)
+		return;
+	while (*stack != NULL)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		if (tmp == NULL)
+			return;
+		tmp->prev = NULL;
+		*stack = tmp;
+	}
+	free(*stack);
 }
