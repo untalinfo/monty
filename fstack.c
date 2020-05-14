@@ -48,3 +48,16 @@ void op_pall(stack_t **stack, unsigned int line_number)
 		ptr = ptr->next;
 	}
 }
+/**
+ * op_pint - prints the value at the top of the stack,
+ * followed by a new line.
+ * @stack: double pointer to linked list = stack
+ * @line_number: Line number of the instruction
+ * Return: None
+ */
+void op_pint(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+		error_func("can't pint, stack empty", line_number);
+	printf("%d\n", (*stack)->n);
+}

@@ -45,6 +45,7 @@ void(*get_function(char **tokens, unsigned int ln))(stack_t **, unsigned int)
 	instruction_t ops[] = {
 		{"push", op_push},
 		{"pall", op_pall},
+		{"pint", op_pint},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
