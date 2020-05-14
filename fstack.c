@@ -88,3 +88,23 @@ void op_pop(stack_t **stack, unsigned int line_number)
 		free(ptr);
 	}
 }
+
+/**
+ * op_pop - swaps the top two elements of the stack.
+ * @stack: double pointer to linked list = stack
+ * @line_number: Line number of the instruction
+ * Return: None
+ */
+void op_swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		error_func("can't swap, stack too short", line_number);
+	ptr = (*stack)->next;
+	(*stack)->prev = ptr;
+	(*stack)->next = ptr->next;
+	ptr->prev = NULL;
+	ptr->next = *stack;
+	*stack = ptr;
+}
