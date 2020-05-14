@@ -44,7 +44,7 @@ void read_file(char *file_name)
 		else
 			get_function(token, line_num)(&stack, line_num);
 	}
-    fclose(file);
+	fclose(file);
 	free(buffer);
 	free_list(&stack);
 }
