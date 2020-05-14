@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	read_file(argv[1]);
@@ -44,6 +44,7 @@ void read_file(char *file_name)
 		else
 			get_function(token, line_num)(&stack, line_num);
 	}
+    fclose(file);
 	free(buffer);
 	free_list(&stack);
 }
