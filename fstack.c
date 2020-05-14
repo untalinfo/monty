@@ -90,7 +90,7 @@ void op_pop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * op_pop - swaps the top two elements of the stack.
+ * op_swap - swaps the top two elements of the stack.
  * @stack: double pointer to linked list = stack
  * @line_number: Line number of the instruction
  * Return: None
