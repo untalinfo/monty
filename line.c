@@ -49,6 +49,11 @@ void(*get_function(char **tokens, unsigned int ln))(stack_t **, unsigned int)
 	};
 	unsigned int i = 0;
 
+	if (tokens[0][0] == '#')
+	{
+		free(tokens);
+		/*return (op_nop);*/
+	}
 	while (ops[i].opcode != NULL)
 	{
 		if ((strcmp(ops[i].opcode, tokens[0]) == 0))
