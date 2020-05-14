@@ -52,6 +52,8 @@ void(*get_function(char **tokens, unsigned int ln))(stack_t **, unsigned int)
 		{"nop", op_nop},
 		{"sub", op_sub},
 		{"div", op_div},
+		{"mul", op_mul},
+		{"mod", op_mod},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
@@ -75,8 +77,7 @@ void(*get_function(char **tokens, unsigned int ln))(stack_t **, unsigned int)
 				arg = atoi(tokens[1]);
 			free(tokens);
 			return (ops[i].f);
-		}
-		i++;
+		} i++;
 	}
 	fprintf(stderr, "L%d: unknow instruction %s\n", ln, tokens[0]);
 	free(tokens);
