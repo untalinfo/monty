@@ -46,6 +46,7 @@ void(*get_function(char **tokens, unsigned int ln))(stack_t **, unsigned int)
 		{"push", op_push},
 		{"pall", op_pall},
 		{"pint", op_pint},
+		{"pop", op_pop},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;

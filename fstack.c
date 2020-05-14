@@ -61,3 +61,30 @@ void op_pint(stack_t **stack, unsigned int line_number)
 		error_func("can't pint, stack empty", line_number);
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * op_pop - removes the top element of the stack.
+ * @stack: double pointer to linked list = stack
+ * @line_number: Line number of the instruction
+ * Return: None
+ */
+void op_pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr;
+
+	if (*stack == NULL)
+		error_func("can't pop an empty stack", line_number);
+	if ((*stack)->next == NULL)
+	{
+		free(*stack);
+		*stack = NULL;
+	}
+	else
+	{
+		ptr = (*stack)->next;
+		(*stack) = ptr;
+		ptr = ptr->prev;
+		(*stack)->prev = NULL;
+		free(ptr);
+	}
+}
