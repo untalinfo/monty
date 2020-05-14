@@ -67,7 +67,7 @@ void(*get_function(char **tokens, unsigned int ln))(stack_t **, unsigned int)
 				(tokens[1] == NULL || (!(valid_arg(tokens[1])))))
 			{
 				free(tokens);
-				error_func("Usage: push integer", ln);
+				error_func("usage: push integer", ln);
 			}
 			else if ((strcmp(ops[i].opcode, "push") == 0))
 				arg = atoi(tokens[1]);
