@@ -34,12 +34,12 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
 	{
-		printf("L%d: can't pchar, stack empty\n", line_num);
+		printf("L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (!(isascii((*stack)->n)))
 	{
-		printf("L%d: can't pchar, value out of range\n", line_num);
+		printf("L%d: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", (*stack)->n);
