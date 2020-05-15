@@ -52,7 +52,7 @@ void(*get_function(char **tokens, unsigned int ln))(stack_t **, unsigned int)
 		{"nop", op_nop},
 		{"sub", op_sub},
 		{"div", op_div},
-		{"mul", op_mul},
+		{"mul", op_mul}, {"pstr", op_pstr},
 		{"mod", op_mod}, {"pchar", op_pchar},
 		{NULL, NULL}
 	};
