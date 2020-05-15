@@ -16,7 +16,7 @@ char **parse_line(char *line)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	token = strtok(line, " '\n'");
+	token = strtok(line, " '\n'\t");
 	if (token == NULL)
 	{
 		free(tokens);
@@ -26,7 +26,7 @@ char **parse_line(char *line)
 	while (token != NULL && i < 2)
 	{
 		tokens[i] = token;
-		token = strtok(NULL, " '\n'");
+		token = strtok(NULL, " '\n'\t");
 		i++;
 	}
 	tokens[i] = NULL;
