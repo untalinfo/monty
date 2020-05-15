@@ -32,18 +32,15 @@ void op_mod(stack_t **stack, unsigned int line_number)
  */
 void op_pchar(stack_t **stack, unsigned int line_number)
 {
-	int x = 0;
-
-	if (*stack == NULL || stack == NULL)
-		error_func("can't pchar, stack empty", line_number);
-	x = (*stack)->n;
-	if (x >= 1 && x <= 127)
+	if (stack == NULL || *stack == NULL)
 	{
-		putchar(x);
-		putchar('\n');
+		printf("L%d: can't pchar, stack empty\n", line_num);
+		exit(EXIT_FAILURE);
 	}
-	else
+	if (!(isascii((*stack)->n)))
 	{
-		error_func("can't pchar, value out of range", line_number);
+		printf("L%d: can't pchar, value out of range\n", line_num);
+		exit(EXIT_FAILURE);
 	}
+	printf("%c\n", (*stack)->n);
 }
