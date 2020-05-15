@@ -37,10 +37,11 @@ void op_push(stack_t **stack, unsigned int line_number)
 void op_pall(stack_t **stack, unsigned int line_number)
 {
 	const stack_t *ptr;
+	
 	(void) line_number;
 
 	if (stack == NULL)
-		exit(EXIT_FAILURE);
+		return;
 	ptr = *stack;
 	while (ptr != NULL)
 	{
