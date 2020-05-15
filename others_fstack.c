@@ -32,19 +32,18 @@ void op_mod(stack_t **stack, unsigned int line_number)
  */
 void op_pchar(stack_t **stack, unsigned int line_number)
 {
-	int i = 0;
+	int x = 0;
 
 	if (*stack == NULL || stack == NULL)
+		error_func("can't pchar, stack empty", line_number);
+	x = (*stack)->n;
+	if (x >= 1 && x <= 127)
 	{
-		printf("L%d: can't pchar, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
+		putchar(x);
+		putchar('\n');
 	}
-	i = (*stack)->n;
-	if (i >= 1 && i <= 127)
-		printf("%c\n", i);
 	else
 	{
-		printf("L%d: can't pchar, value out of range\n", line_number);
-		exit(EXIT_FAILURE);
+		error_func("can't pchar, value out of range", line_number);
 	}
 }
